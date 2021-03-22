@@ -1,17 +1,17 @@
-# 인스타그램 클론 코딩
+# 인스타 그램 클론 코딩
+##### 03.22 최신화
 
 ### 의존성
-
-- Sring Boot DevTools
-- Lombok
+- Spring Boot DebTools
+- Spring Web
+- Spring Security
 - Spring Data JPA
 - MySQL Driver
-- Spring Security
-- Spring Web
-- oauth2-client
+- OAuth2 Client
+- Lombok
 
 ```xml
-<!-- 시큐리티 태그 라이브러리 -->
+<!-- 시큐리티 태그 -->
 <dependency>
 	<groupId>org.springframework.security</groupId>
 	<artifactId>spring-security-taglibs</artifactId>
@@ -21,24 +21,26 @@
 <dependency>
 	<groupId>org.apache.tomcat</groupId>
 	<artifactId>tomcat-jasper</artifactId>
-	<version>9.0.22</version>
+	<version>9.0.41</version>
 </dependency>
 
 <!-- JSTL -->
 <dependency>
 	<groupId>javax.servlet</groupId>
 	<artifactId>jstl</artifactId>
+	<version>1.2</version>
 </dependency>
 ```
 
-```DB 설정
+### 데이터 베이스
+```sql
 create user 'costa'@'%' identified by 'costa1234';
 GRANT ALL PRIVILEGES ON *.* TO 'costa'@'%';
-create database costa;
+create database insta;
 ```
 
-
-```yml.설정
+### 서버 환경
+````yml
 server:
   port: 8080
   servlet:
@@ -79,6 +81,4 @@ spring:
 
 file:
   path: C:/src/instagram/src/main/resources/upload/
- ```
-
-
+```
