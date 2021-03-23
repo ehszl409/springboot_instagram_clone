@@ -33,7 +33,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.and()
 		.formLogin()
 		.loginPage("/auth/loginForm")
-		.loginProcessingUrl("/");
+		
+		// POST요청의 /login 주소를 디스패처 확인하면 UsernamePasswordAuthenticationFilter가 낚아챔
+		.loginProcessingUrl("/login")
+		.defaultSuccessUrl("/");
 		//OAuth2.0 과 CORS는 나중에
 		
 	}
