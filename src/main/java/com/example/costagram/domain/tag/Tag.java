@@ -1,16 +1,19 @@
-package com.example.costagram.domain.user;
+package com.example.costagram.domain.tag;
 
 import java.sql.Timestamp;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.example.costagram.domain.image.Image;
+import com.example.costagram.domain.user.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,31 +25,20 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 @Entity
-public class User {
-	
+public class Tag {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id; 
 	
-	@Column(length = 30, unique = true)
-	private String username;
-	
-	@JsonIgnore
-	private String password;
-	
 	private String name;
-	private String website;
-	private String bio;
-	private String email;
-	private String phone;
-	private String gender;
 	
-	private String profileImageUrl;
-	private String provider; //제공자 Google, Facebook, Naver
-	
-	private String role; //USER, ADMIN
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "imageId")
+	private Image image;
 	
 	@CreationTimestamp
 	private Timestamp createDate;
+	
+	
 
 }

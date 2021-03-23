@@ -23,8 +23,8 @@
                         
                         <!-- UsernamePasswordAuthenticationFilter가 낚아챌 수 있도록 action과 method를 맞춰줘야 한다. -->
                         <form class="login__input" action="/login" method="post">
-                            <input type="text" name="id" placeholder="username">
-                            <input type="password" name="password" id="password" placeholder="비밀번호">
+                            <input type="text" name="username" placeholder="username">
+                            <input type="password" name="password" id="password" placeholder="password">
                             <button>로그인</button>
                         </fomr>
                         
@@ -42,7 +42,7 @@
                     </div>
                     <div class="login__register">
                         <span>계정이 없으신가요?</span>
-                        <a href="./auth/joinForm">가입하기</a>
+                        <a href="/auth/joinForm">가입하기</a>
                     </div>
                 </article>
             </section>

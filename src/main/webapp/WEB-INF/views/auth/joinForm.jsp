@@ -22,7 +22,7 @@
                         <h1><img src="/images/logo.jpg" alt=""></h1>
                      
                         <form class="login__input" action="/auth/join" method="post">
-                            <input type="text" name="id" placeholder="username">
+                            <input type="text" name="username" placeholder="username">
                             <input type="password" name="password"  placeholder="password">
                             <input type="email" name="email"  placeholder="email">
                             <input type="text" name="name"  placeholder="name">
