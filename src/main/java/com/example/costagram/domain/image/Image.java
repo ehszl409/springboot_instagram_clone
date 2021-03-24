@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.example.costagram.domain.comment.Comment;
 import com.example.costagram.domain.likes.Likes;
 import com.example.costagram.domain.tag.Tag;
 import com.example.costagram.domain.user.User;
@@ -38,14 +39,17 @@ public class Image {
 	private String postImageUrl;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "usreId")
+	@JoinColumn(name = "userId")
 	private User user;
 	
 	@OneToMany(mappedBy = "image", fetch = FetchType.LAZY)
 	private List<Tag> tags;
 	
-	@OneToMany(mappedBy = "image")
+	@OneToMany(mappedBy = "image", fetch = FetchType.LAZY)
 	private List<Likes> likes;
+	
+	@OneToMany(mappedBy = "image", fetch = FetchType.LAZY)
+	private List<Comment> comments;
 	
 	@CreationTimestamp
 	private Timestamp createDate;
